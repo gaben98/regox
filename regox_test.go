@@ -448,8 +448,11 @@ func TestManyRegexes(t *testing.T) {
 
 func TestMatchAll(t *testing.T) {
 	r := Parse("[Gg]ab(e|riel)")
-	results := r.MatchAll("Gabe gabriel Gabriel")
+	results, indices := r.MatchAll("Gabe gabriel Gabriel")
 	Assert(t, len(results), 3)
+	Assert(t, indices[0], 0)
+	Assert(t, indices[1], 5)
+	Assert(t, indices[2], 13)
 }
 
 func Assert(t *testing.T, value, expected interface{}) {

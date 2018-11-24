@@ -30,20 +30,22 @@ func (regex *Regex) Matches(s string) bool {
 	return regex.exprTree(s).Success
 }
 
-//MatchAll returns all matches within a given string
-func (regex *Regex) MatchAll(s string) []RegResult {
+//MatchAll returns all matches within a given string and the match indices
+func (regex *Regex) MatchAll(s string) ([]RegResult, []int) {
 	matches := make([]RegResult, 0)
+	indices := make([]int, 0)
 	i := 0
 	for i < len(s) {
 		res := regex.exprTree(s[i:len(s)])
 		if res.Success {
-			i += len(res.Coverage)
 			matches = append(matches, res)
+			indices = append(indices, i)
+			i += len(res.Coverage)
 		} else {
 			i++
 		}
 	}
-	return matches
+	return matches, indices
 }
 
 //I need to break up a regex into a composition of atomic regexes and operations
