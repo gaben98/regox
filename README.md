@@ -14,9 +14,9 @@ then can be imported in your code with
 A `Regex` object can be created using `regox.Parse(regex string)`
 
 A `Regex` object can call `Match(s string)` to check if string s matches the regular expression.  This returns a `RegResult` object, which has three properties:
-`Success` is a `bool` whether or not the string matched the regular expression
-`Captures` is a `[]string` containing the capture groups from the match, and
-`Coverage` is a `string` containing the substring matched by the regular expression.
+- `Success` is a `bool` whether or not the string matched the regular expression
+- `Captures` is a `[]string` containing the capture groups from the match, and
+- `Coverage` is a `string` containing the substring matched by the regular expression.
 
 A `Regex` object can call `Match(s string)` which just returns a `bool` of whether the string matched the regular expression
 
