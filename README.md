@@ -5,7 +5,7 @@ Regox is a custom-built regex engine implemented in GOLANG.  Regox builds expres
 ## Getting started
 
 Regox can be added to your project from command line with 
-`go get https://github.com/gaben98/regox`
+`go get github.com/gaben98/regox`
 then can be imported in your code with
 `import "github.com/gaben98/regox"`
 
